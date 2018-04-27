@@ -6,6 +6,7 @@ import com.system.enums.Constant;
 import com.system.service.DoctorService;
 import com.system.service.HospitalService;
 import com.system.service.OfficeService;
+import com.system.util.BeanUtil;
 import com.system.util.StrUtil;
 import org.apache.log4j.Logger;
 import org.apache.struts2.convention.annotation.Action;
@@ -91,7 +92,34 @@ public class DoctorAction extends SuperAction implements ModelDriven<Doctor>{
         }
     }
 
-
+    /**
+     * 医生登录
+     * @return
+     */
+    @Action(value = "login",results = {
+            @Result(name = "success",location = "/chat/chatroom" ,type = "redirect"),
+            @Result(name = "failure",location = "/home/welcomeAdmin",type = "redirect")
+    })
+    public String login(){
+        try {
+            List<Doctor> tmp = doctorService.findByName(doctorModel.getName());
+            int size = tmp.size();
+			if (size > 0){
+				LOGGER.info("医生登录成功");
+				session.setAttribute("doctorname", tmp.get(0).getName());
+				return "success";
+            }else{
+                LOGGER.warn("该管理员不存在");
+                session.setAttribute("errorMsg",new ErrorMsg(112,"该管理员不存在"));
+                return "failure";
+            }
+        }catch (Exception e){
+            LOGGER.error(e);
+            session.setAttribute("errorMsg",new ErrorMsg(100,"系统内部异常"));
+            return "failure";
+        }
+    }
+    
     public Doctor getModel() {
         return doctorModel;
     }

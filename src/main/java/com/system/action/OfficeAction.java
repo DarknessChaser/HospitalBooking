@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by king on 2016/4/27.
+ * Created by king on 2018/4/27.
  */
 @Namespace("/offices")
 public class OfficeAction extends SuperAction implements ModelDriven<Office>{

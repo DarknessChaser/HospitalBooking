@@ -6,7 +6,7 @@ import com.system.entity.Pager;
 import java.util.List;
 
 /**
- * Created by king on 2016/4/21.
+ * Created by king on 2018/4/21.
  */
 public interface DoctorDao extends GenericDao<Doctor,Integer>{
 

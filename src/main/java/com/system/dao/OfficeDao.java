@@ -6,7 +6,7 @@ import com.system.entity.Pager;
 import java.util.List;
 
 /**
- * Created by king on 2016/4/20.
+ * Created by king on 2018/4/20.
  */
 public interface OfficeDao extends GenericDao<Office,Integer> {
 

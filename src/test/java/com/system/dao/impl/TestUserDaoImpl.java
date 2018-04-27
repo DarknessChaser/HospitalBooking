@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by king on 2016/4/21.
+ * Created by king on 2018/4/21.
  */
 public class TestUserDaoImpl extends GenericTest{
 

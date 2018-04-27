@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by king on 2016/4/20.
+ * Created by king on 2018/4/20.
  */
 @Entity
 @Table(name = "user",catalog = "91system")

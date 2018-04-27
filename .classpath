@@ -34,5 +34,8 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="lib" path="src/main/webapp/umeditor/jsp/commons-fileupload-1.2.2.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/umeditor/jsp/ueditor-mini.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

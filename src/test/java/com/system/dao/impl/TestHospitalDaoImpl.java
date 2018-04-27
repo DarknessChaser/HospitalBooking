@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by king on 2016/4/20.
+ * Created by king on 2018/4/20.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring.xml","classpath:spring-hibernate.xml" })

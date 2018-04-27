@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.sql.Timestamp;
 
 /**
- * Created by king on 2016/4/21.
+ * Created by king on 2018/4/21.
  */
 public class TestWalletDaoImpl extends GenericTest {
 

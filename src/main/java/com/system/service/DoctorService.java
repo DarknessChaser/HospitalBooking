@@ -6,7 +6,7 @@ import com.system.entity.Pager;
 import java.util.List;
 
 /**
- * Created by king on 2016/4/26.
+ * Created by king on 2018/4/26.
  */
 public interface DoctorService {
 

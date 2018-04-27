@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * Created by king on 2016/4/23.
+ * Created by king on 2018/4/23.
  */
 public class TestHospitalServiceImpl extends GenericTest {
 

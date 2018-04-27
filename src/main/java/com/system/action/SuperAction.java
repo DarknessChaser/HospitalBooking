@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  *所有action的父类
  *
- * Created by king on 2016/4/27.
+ * Created by king on 2018/4/27.
  */
 public class SuperAction extends ActionSupport implements ServletContextAware, ServletRequestAware,ServletResponseAware {
 

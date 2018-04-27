@@ -2,7 +2,7 @@ package com.system.util;
 
 /**
  * 对象常用方法工具类
- * Created by king on 2016/4/22.
+ * Created by king on 2018/4/22.
  */
 public final class BeanUtil {
 

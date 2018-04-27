@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 /**
- * Created by king on 2016/4/21.
+ * Created by king on 2018/4/21.
  */
 @Embeddable
 public class Patient implements Serializable {

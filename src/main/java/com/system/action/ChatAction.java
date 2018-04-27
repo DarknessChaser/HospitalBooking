@@ -19,9 +19,9 @@ public class ChatAction extends SuperAction {
             @Result(name = "success",location = "../chatroom.jsp")
     })
     public String chatroom(){
-    	String doctorid = request.getParameter("doctorid");
-    	if (StringUtils.isNotBlank(doctorid)) {
-    		session.setAttribute("chatname","医生"+doctorid);
+    	String doctorname = (String) session.getAttribute("doctorname");
+    	if (StringUtils.isNotBlank(doctorname)) {
+    		session.setAttribute("chatname",doctorname+"医生");
 		} else {
 			String userPhone = request.getParameter("userPhone");
 			if (StringUtils.isNotBlank(userPhone)) {

@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import org.junit.Test;
 
 /**
- * Created by king on 2016/4/23.
+ * Created by king on 2018/4/23.
  */
 public class TestHospitalQualityEnum extends GenericTest {
 

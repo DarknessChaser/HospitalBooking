@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by king on 2016/4/27.
+ * Created by king on 2018/4/27.
  */
 @Namespace("/hospitals")
 public class HospitalAction extends SuperAction implements ModelDriven<Hospital>{

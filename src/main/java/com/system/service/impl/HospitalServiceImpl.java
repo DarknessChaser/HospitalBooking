@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by king on 2016/4/22.
+ * Created by king on 2018/4/22.
  */
 @Service("hospitalService")
 public class HospitalServiceImpl implements HospitalService{

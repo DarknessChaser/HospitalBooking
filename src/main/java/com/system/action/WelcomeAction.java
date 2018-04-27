@@ -25,4 +25,11 @@ public class WelcomeAction extends SuperAction {
     public String welcomeAdmin(){
         return "success";
     }
+    
+    @Action(value = "welcomeDoctor" ,results = {
+    		@Result(name = "success",location = "../doctorLogin.jsp")
+    })
+    public String welcomeDoctor(){
+    	return "success";
+    }
 }

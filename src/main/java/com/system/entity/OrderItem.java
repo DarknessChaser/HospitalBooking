@@ -8,7 +8,7 @@ import java.sql.Time;
 import java.sql.Timestamp;
 
 /**
- * Created by king on 2016/4/21.
+ * Created by king on 2018/4/21.
  */
 @Entity
 @Table(name = "orderitem",catalog = "91system")

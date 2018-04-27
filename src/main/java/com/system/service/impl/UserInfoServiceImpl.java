@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by king on 2016/4/26.
+ * Created by king on 2018/4/26.
  */
 @Service("UserInfoService")
 public class UserInfoServiceImpl implements UserInfoService {

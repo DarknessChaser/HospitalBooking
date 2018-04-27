@@ -19,7 +19,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by king on 2016/5/15.
+ * Created by king on 2018/5/15.
  */
 @Namespace("/hAdmin")
 public class HAdmin2DoctorAction extends SuperAction implements ModelDriven<Doctor>{

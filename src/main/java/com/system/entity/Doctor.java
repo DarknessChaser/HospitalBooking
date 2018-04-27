@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * Created by king on 2016/4/20.
+ * Created by king on 2018/4/20.
  */
 @Entity
 @Table(name = "doctor",catalog = "91system")

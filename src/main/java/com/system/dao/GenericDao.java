@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * dao通用接口
- * Created by king on 2016/4/20.
+ * Created by king on 2018/4/20.
  */
 public interface GenericDao<T, PK extends Serializable> {
 

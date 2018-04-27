@@ -1,29 +1,24 @@
-CREATE DATABASE  IF NOT EXISTS `91system` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `91system`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
---
--- Host: localhost    Database: 91system
--- ------------------------------------------------------
--- Server version	5.6.21-log
+/*
+Navicat MySQL Data Transfer
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+Source Server         : localhost_3306
+Source Server Version : 50714
+Source Host           : localhost:3306
+Source Database       : 91system
 
---
--- Table structure for table `doctor`
---
+Target Server Type    : MYSQL
+Target Server Version : 50714
+File Encoding         : 65001
 
+Date: 2018-04-27 13:03:33
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for doctor
+-- ----------------------------
 DROP TABLE IF EXISTS `doctor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `doctor` (
   `did` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(10) NOT NULL,
@@ -37,25 +32,36 @@ CREATE TABLE `doctor` (
   KEY `oid-fk_idx` (`oid`),
   CONSTRAINT `o_d_fk` FOREIGN KEY (`oid`) REFERENCES `office` (`oid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `doctor`
---
+-- ----------------------------
+-- Records of doctor
+-- ----------------------------
+INSERT INTO `doctor` VALUES ('1', 'testdoc1', '0', '0', null, null, null, '1');
+INSERT INTO `doctor` VALUES ('2', 'testdoc2', '0', '0', null, null, null, '1');
+INSERT INTO `doctor` VALUES ('3', 'testdoc2', '0', '0', null, null, null, '1');
 
-LOCK TABLES `doctor` WRITE;
-/*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
-INSERT INTO `doctor` VALUES (1,'testdoc1',0,0,NULL,NULL,NULL,1),(2,'testdoc2',0,0,NULL,NULL,NULL,1),(3,'testdoc2',0,0,NULL,NULL,NULL,1);
-/*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
-UNLOCK TABLES;
+-- ----------------------------
+-- Table structure for hadmin
+-- ----------------------------
+DROP TABLE IF EXISTS `hadmin`;
+CREATE TABLE `hadmin` (
+  `haid` int(11) NOT NULL AUTO_INCREMENT,
+  `account` varchar(10) NOT NULL,
+  `hid` int(11) NOT NULL,
+  `password` varchar(16) NOT NULL,
+  PRIMARY KEY (`haid`),
+  UNIQUE KEY `UK_kugoa4lamvqo1p56lhsusic5h` (`account`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `hospital`
---
+-- ----------------------------
+-- Records of hadmin
+-- ----------------------------
+INSERT INTO `hadmin` VALUES ('1', 'hadmintest', '1', '123456');
 
+-- ----------------------------
+-- Table structure for hospital
+-- ----------------------------
 DROP TABLE IF EXISTS `hospital`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `hospital` (
   `hid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
@@ -68,25 +74,22 @@ CREATE TABLE `hospital` (
   `type` int(11) DEFAULT NULL,
   PRIMARY KEY (`hid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `hospital`
---
+-- ----------------------------
+-- Records of hospital
+-- ----------------------------
+INSERT INTO `hospital` VALUES ('1', 'scut_hospital', 'scut', '123456789', null, '0', '0', '0', '0');
+INSERT INTO `hospital` VALUES ('2', '华工大医院', '华南理工大学', '123456789', null, '0', '0', '0', '0');
+INSERT INTO `hospital` VALUES ('3', '华工大医院', '华南理工大学', '123456789', null, '0', '0', '0', '0');
+INSERT INTO `hospital` VALUES ('4', '华工中医院', '华南理工大学大学城校区', '123456789', null, '0', '0', '0', '0');
+INSERT INTO `hospital` VALUES ('5', '大学城医院', '华南理工大学大学城校区', '123456789', null, '0', '0', '0', '0');
+INSERT INTO `hospital` VALUES ('6', '大学城中医院', '大学城', '123456789', null, '0', '0', '0', '0');
+INSERT INTO `hospital` VALUES ('7', '番禺中医院', '大学城', '123456789', null, '0', '0', '0', '0');
 
-LOCK TABLES `hospital` WRITE;
-/*!40000 ALTER TABLE `hospital` DISABLE KEYS */;
-INSERT INTO `hospital` VALUES (1,'scut_hospital','scut','123456789',NULL,0,0,0,0),(2,'华工大医院','华南理工大学','123456789',NULL,0,0,0,0),(3,'华工大医院','华南理工大学','123456789',NULL,0,0,0,0),(4,'华工中医院','华南理工大学大学城校区','123456789',NULL,0,0,0,0),(5,'大学城医院','华南理工大学大学城校区','123456789',NULL,0,0,0,0),(6,'大学城中医院','大学城','123456789',NULL,0,0,0,0),(7,'番禺中医院','大学城','123456789',NULL,0,0,0,0);
-/*!40000 ALTER TABLE `hospital` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `office`
---
-
+-- ----------------------------
+-- Table structure for office
+-- ----------------------------
 DROP TABLE IF EXISTS `office`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `office` (
   `oid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
@@ -97,25 +100,19 @@ CREATE TABLE `office` (
   KEY `hid_idx` (`hid`),
   CONSTRAINT `h_o_fk` FOREIGN KEY (`hid`) REFERENCES `hospital` (`hid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `office`
---
+-- ----------------------------
+-- Records of office
+-- ----------------------------
+INSERT INTO `office` VALUES ('1', '手术室', '0', '0', '1');
+INSERT INTO `office` VALUES ('2', '妇科', '0', '0', '1');
+INSERT INTO `office` VALUES ('3', '门诊室', '0', '0', '1');
+INSERT INTO `office` VALUES ('4', '儿科', '0', '0', '1');
 
-LOCK TABLES `office` WRITE;
-/*!40000 ALTER TABLE `office` DISABLE KEYS */;
-INSERT INTO `office` VALUES (1,'手术室',0,0,1),(2,'妇科',0,0,1),(3,'门诊室',0,0,1),(4,'儿科',0,0,1);
-/*!40000 ALTER TABLE `office` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `orderitem`
---
-
+-- ----------------------------
+-- Table structure for orderitem
+-- ----------------------------
 DROP TABLE IF EXISTS `orderitem`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `orderitem` (
   `oiid` varchar(32) NOT NULL,
   `timing` time NOT NULL,
@@ -135,25 +132,16 @@ CREATE TABLE `orderitem` (
   CONSTRAINT `s_oi_fk` FOREIGN KEY (`sid`) REFERENCES `schedule` (`sid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `ui_oi_fk` FOREIGN KEY (`uiid`) REFERENCES `userinfo` (`uiid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `orderitem`
---
+-- ----------------------------
+-- Records of orderitem
+-- ----------------------------
+INSERT INTO `orderitem` VALUES ('orderitem1461240435571', '20:07:15', 'xiaojin', '2016-04-21', '0', '18814122697', null, '2016-04-21 20:07:16', '2016-04-21 20:32:12', '0', '1', '1');
 
-LOCK TABLES `orderitem` WRITE;
-/*!40000 ALTER TABLE `orderitem` DISABLE KEYS */;
-INSERT INTO `orderitem` VALUES ('orderitem1461240435571','20:07:15','xiaojin','2016-04-21',0,'18814122697',NULL,'2016-04-21 12:07:16','2016-04-21 12:32:12',0,1,1);
-/*!40000 ALTER TABLE `orderitem` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `refund`
---
-
+-- ----------------------------
+-- Table structure for refund
+-- ----------------------------
 DROP TABLE IF EXISTS `refund`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `refund` (
   `rid` int(11) NOT NULL AUTO_INCREMENT,
   `apply` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -168,24 +156,33 @@ CREATE TABLE `refund` (
   CONSTRAINT `oi_r_fk` FOREIGN KEY (`oiid`) REFERENCES `orderitem` (`oiid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `w_r_fk` FOREIGN KEY (`wid`) REFERENCES `wallet` (`wid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `refund`
---
+-- ----------------------------
+-- Records of refund
+-- ----------------------------
 
-LOCK TABLES `refund` WRITE;
-/*!40000 ALTER TABLE `refund` DISABLE KEYS */;
-/*!40000 ALTER TABLE `refund` ENABLE KEYS */;
-UNLOCK TABLES;
+-- ----------------------------
+-- Table structure for sadmin
+-- ----------------------------
+DROP TABLE IF EXISTS `sadmin`;
+CREATE TABLE `sadmin` (
+  `said` int(11) NOT NULL AUTO_INCREMENT,
+  `account` varchar(10) NOT NULL,
+  `isroot` int(11) NOT NULL,
+  `password` varchar(16) NOT NULL,
+  PRIMARY KEY (`said`),
+  UNIQUE KEY `UK_o6b4stf9u5kpds05c2jbr5umt` (`account`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `schedule`
---
+-- ----------------------------
+-- Records of sadmin
+-- ----------------------------
+INSERT INTO `sadmin` VALUES ('1', 'sadmintest', '1', '123456');
 
+-- ----------------------------
+-- Table structure for schedule
+-- ----------------------------
 DROP TABLE IF EXISTS `schedule`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `schedule` (
   `sid` int(11) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
@@ -197,26 +194,18 @@ CREATE TABLE `schedule` (
   PRIMARY KEY (`sid`),
   KEY `did-fk_idx` (`did`),
   CONSTRAINT `d_s_fk` FOREIGN KEY (`did`) REFERENCES `doctor` (`did`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `schedule`
---
+-- ----------------------------
+-- Records of schedule
+-- ----------------------------
+INSERT INTO `schedule` VALUES ('1', '2018-04-26', '0', '20', '10', '4', '2');
+INSERT INTO `schedule` VALUES ('2', '2016-04-28', '5', '6', '7', '8', '1');
 
-LOCK TABLES `schedule` WRITE;
-/*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
-INSERT INTO `schedule` VALUES (1,'2016-04-21',0,20,20,4,1);
-/*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `trade`
---
-
+-- ----------------------------
+-- Table structure for trade
+-- ----------------------------
 DROP TABLE IF EXISTS `trade`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `trade` (
   `tid` int(11) NOT NULL AUTO_INCREMENT,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -229,25 +218,16 @@ CREATE TABLE `trade` (
   CONSTRAINT `oi_t_fk` FOREIGN KEY (`oiid`) REFERENCES `orderitem` (`oiid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `w_t_fk` FOREIGN KEY (`wid`) REFERENCES `wallet` (`wid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `trade`
---
+-- ----------------------------
+-- Records of trade
+-- ----------------------------
+INSERT INTO `trade` VALUES ('1', '2016-04-21 20:32:12', '4', 'orderitem1461240435571', '1');
 
-LOCK TABLES `trade` WRITE;
-/*!40000 ALTER TABLE `trade` DISABLE KEYS */;
-INSERT INTO `trade` VALUES (1,'2016-04-21 12:32:12',4,'orderitem1461240435571',1);
-/*!40000 ALTER TABLE `trade` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user`
---
-
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
 DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `phone` varchar(11) NOT NULL,
@@ -256,25 +236,16 @@ CREATE TABLE `user` (
   PRIMARY KEY (`uid`),
   UNIQUE KEY `phone_UNIQUE` (`phone`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `user`
---
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('1', '123', '123456', '0');
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'18814122697','123456',0);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `userinfo`
---
-
+-- ----------------------------
+-- Table structure for userinfo
+-- ----------------------------
 DROP TABLE IF EXISTS `userinfo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `userinfo` (
   `uiid` int(11) NOT NULL AUTO_INCREMENT,
   `phone` varchar(11) NOT NULL,
@@ -293,25 +264,16 @@ CREATE TABLE `userinfo` (
   KEY `uid-fk_idx` (`uid`),
   CONSTRAINT `u_ui_fk` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `userinfo`
---
+-- ----------------------------
+-- Records of userinfo
+-- ----------------------------
+INSERT INTO `userinfo` VALUES ('1', '18814122697', '肖劲', '0', '2016-04-21', '12345678910', null, null, '0', '0', null, '1');
 
-LOCK TABLES `userinfo` WRITE;
-/*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
-INSERT INTO `userinfo` VALUES (1,'18814122697','肖劲',0,'2016-04-21','12345678910',NULL,NULL,0,0,NULL,1);
-/*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `wallet`
---
-
+-- ----------------------------
+-- Table structure for wallet
+-- ----------------------------
 DROP TABLE IF EXISTS `wallet`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `wallet` (
   `wid` int(11) NOT NULL AUTO_INCREMENT,
   `account` double NOT NULL,
@@ -320,25 +282,8 @@ CREATE TABLE `wallet` (
   KEY `uiid-fk_idx` (`uiid`),
   CONSTRAINT `ui_w_fk` FOREIGN KEY (`uiid`) REFERENCES `userinfo` (`uiid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `wallet`
---
-
-LOCK TABLES `wallet` WRITE;
-/*!40000 ALTER TABLE `wallet` DISABLE KEYS */;
-INSERT INTO `wallet` VALUES (1,100,1);
-/*!40000 ALTER TABLE `wallet` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2016-04-24 22:45:18
+-- ----------------------------
+-- Records of wallet
+-- ----------------------------
+INSERT INTO `wallet` VALUES ('1', '100', '1');

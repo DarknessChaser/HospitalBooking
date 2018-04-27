@@ -79,11 +79,11 @@
 	<div class="top_content">
 		<div class="top_left">
 		  	<ul>
-		  		<li>在线预约挂号系统</li>
+		  		<li onclick="window.location.href='<%=path%>/hospitals/list'">在线预约挂号系统</li>
 		  		<li class="line"></li>
 		  		<li>挂号</li>
 		  		<li class="line"></li>
-		  		<li>咨询</li>
+		  		<li onclick="window.location.href='<%=path%>/chat/chatroom?userPhone=${userPhone}'">咨询</li>
 		  		<li class="line"></li>
 		  		<li>社区</li>
 		  		<div class="clear"></div>

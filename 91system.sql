@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-04-27 13:03:33
+Date: 2018-04-27 15:58:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -137,6 +137,7 @@ CREATE TABLE `orderitem` (
 -- Records of orderitem
 -- ----------------------------
 INSERT INTO `orderitem` VALUES ('orderitem1461240435571', '20:07:15', 'xiaojin', '2016-04-21', '0', '18814122697', null, '2016-04-21 20:07:16', '2016-04-21 20:32:12', '0', '1', '1');
+INSERT INTO `orderitem` VALUES ('orderitem1524813961035', '09:30:00', '测试人员', '2018-02-28', '0', '123', '阿斯顿', '2018-04-27 15:26:01', '2018-04-27 15:26:01', '0', '1', '2');
 
 -- ----------------------------
 -- Table structure for refund
@@ -199,7 +200,7 @@ CREATE TABLE `schedule` (
 -- ----------------------------
 -- Records of schedule
 -- ----------------------------
-INSERT INTO `schedule` VALUES ('1', '2018-04-26', '0', '20', '10', '4', '2');
+INSERT INTO `schedule` VALUES ('1', '2018-04-27', '0', '20', '11', '4', '2');
 INSERT INTO `schedule` VALUES ('2', '2016-04-28', '5', '6', '7', '8', '1');
 
 -- ----------------------------
@@ -217,12 +218,13 @@ CREATE TABLE `trade` (
   KEY `w_t_fk_idx` (`wid`),
   CONSTRAINT `oi_t_fk` FOREIGN KEY (`oiid`) REFERENCES `orderitem` (`oiid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `w_t_fk` FOREIGN KEY (`wid`) REFERENCES `wallet` (`wid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of trade
 -- ----------------------------
 INSERT INTO `trade` VALUES ('1', '2016-04-21 20:32:12', '4', 'orderitem1461240435571', '1');
+INSERT INTO `trade` VALUES ('2', '2018-04-27 15:26:01', '4', 'orderitem1524813961035', '2');
 
 -- ----------------------------
 -- Table structure for user
@@ -240,7 +242,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '123', '123456', '0');
+INSERT INTO `user` VALUES ('1', '123', '123456', '1');
 
 -- ----------------------------
 -- Table structure for userinfo
@@ -263,12 +265,13 @@ CREATE TABLE `userinfo` (
   UNIQUE KEY `phone_UNIQUE` (`phone`),
   KEY `uid-fk_idx` (`uid`),
   CONSTRAINT `u_ui_fk` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of userinfo
 -- ----------------------------
 INSERT INTO `userinfo` VALUES ('1', '18814122697', '肖劲', '0', '2016-04-21', '12345678910', null, null, '0', '0', null, '1');
+INSERT INTO `userinfo` VALUES ('2', '123', '测试人员', '0', '2018-02-28', '', '', '', '0', '0', '', '1');
 
 -- ----------------------------
 -- Table structure for wallet
@@ -281,9 +284,10 @@ CREATE TABLE `wallet` (
   PRIMARY KEY (`wid`),
   KEY `uiid-fk_idx` (`uiid`),
   CONSTRAINT `ui_w_fk` FOREIGN KEY (`uiid`) REFERENCES `userinfo` (`uiid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of wallet
 -- ----------------------------
 INSERT INTO `wallet` VALUES ('1', '100', '1');
+INSERT INTO `wallet` VALUES ('2', '26', '2');
